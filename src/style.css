@@ -274,6 +274,104 @@ html.lenis body {
     color: var(--primary);
 }
 
+/* ═══════════════════════ REELS CONTENT — HORIZONTAL SCROLL ═══════════════════════ */
+.reels-section {
+    position: relative;
+    width: 100%;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+}
+
+.reels-pin-wrap {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.reels-scene-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.6vw, 20px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--primary);
+    text-align: center;
+    min-height: 26px;
+    transition: opacity .25s;
+}
+
+.reels-scene-title::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--primary);
+    margin: 8px auto 0;
+    opacity: .4;
+}
+
+.reels-track-outer {
+    width: 100vw;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reels-track {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    will-change: transform;
+}
+
+.reels-card {
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #111;
+    border: 1px solid var(--border);
+    will-change: transform, opacity;
+    transition: border-color 0.3s;
+}
+
+.reels-card:hover {
+    border-color: var(--primary);
+}
+
+.reels-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.reels-ticker-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5px;
+    height: 36px;
+}
+
+.reels-tick {
+    width: 2px;
+    border-radius: 1px;
+    background: var(--border);
+    transition: background .2s, height .2s;
+}
+
+.reels-tick.active {
+    background: var(--primary);
+}
+
 /* ═══════════════════════ AI & AUTOMATION ═══════════════════════ */
 .ai-section {
     position: relative;

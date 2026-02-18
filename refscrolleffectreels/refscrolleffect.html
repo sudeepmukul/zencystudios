@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Horizontal Scroll</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #fff; }
+  body { background: #fff; overflow-x: hidden; }
+
+  .pin-wrap {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  /* title shown above cards */
+  .scene-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    font-size: clamp(13px, 1.6vw, 20px);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: #111;
+    text-align: center;
+    min-height: 26px;
+    transition: opacity .25s;
+  }
+  .scene-title::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: #111;
+    margin: 8px auto 0;
+    opacity: .3;
+  }
+
+  /* the scrolling row */
+  .track-outer {
+    width: 100vw;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .track {
+    display: flex;
+    align-items: flex-end; /* bottom-aligned so rotation fans from base */
+    gap: 10px;
+    will-change: transform;
+  }
+
+  /* 9:16 card */
+  .card {
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #222;
+    will-change: transform, opacity;
+    /* dimensions set via JS */
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* progress ticker */
+  .ticker-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5px;
+    height: 36px;
+  }
+  .tick {
+    width: 2px;
+    border-radius: 1px;
+    background: #bbb;
+    transition: background .2s, height .2s;
+  }
+  .tick.active {
+    background: #111;
+  }
+
+  .spacer { /* height set in JS */ }
+</style>
+</head>
+<body>
+
+<div class="spacer" id="spacer">
+  <div class="pin-wrap">
+    <div class="scene-title" id="sceneTitle">&nbsp;</div>
+    <div class="track-outer">
+      <div class="track" id="track"></div>
+    </div>
+    <div class="ticker-wrap" id="ticker"></div>
+  </div>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const works = [
+  { title: "SK Telecom :/Addiction",       thumb: "https://images.prismic.io/alcre/aFNobrNJEFaPYFhr_1.png?auto=format,compress" },
+  { title: "SK Telecom :/Dopamine",        thumb: "https://images.prismic.io/alcre/aFNojLNJEFaPYFhs_2.png?auto=format,compress" },
+  { title: "GALAXY S24",                   thumb: "https://images.prismic.io/alcre/aFNouLNJEFaPYFht_3.png?auto=format,compress" },
+  { title: "GALAXY Z 6",                   thumb: "https://images.prismic.io/alcre/aFNpF7NJEFaPYFhy_4.png?auto=format,compress" },
+  { title: "DDANJITRER's AI",              thumb: "https://images.prismic.io/alcre/aFUm5Hfc4bHWikLF_flow_2025-06-20_18317930.png?auto=format,compress" },
+  { title: "LANEIGE / Cream Skin",         thumb: "https://images.prismic.io/alcre/aFNpVbNJEFaPYFh0_6.png?auto=format,compress" },
+  { title: "VITAL BEUTY / Meta Green",     thumb: "https://images.prismic.io/alcre/aFNparNJEFaPYFh1_7.png?auto=format,compress" },
+  { title: "SK Telecom :/AI Help you?",    thumb: "https://images.prismic.io/alcre/aFNo3LNJEFaPYFhw_8.png?auto=format,compress" },
+  { title: "Always I Love You",            thumb: "https://images.prismic.io/alcre/aFNpgbNJEFaPYFh2_9.png?auto=format,compress" },
+  { title: "AESTURA / Pop-Up Store",       thumb: "https://images.prismic.io/alcre/aFJQ17NJEFaPYDMC_%EB%A6%AC%EC%A0%9C%EB%8D%A4%ED%95%98%EC%9A%B0%EC%8A%A4.jpg?auto=compress,format" },
+  { title: "SK Telecom A. / Series 1",     thumb: "https://images.prismic.io/alcre/086493b4-fdbf-49c8-a1ae-7f23ecba1d89_%E1%84%83%E1%85%A2%E1%84%8C%E1%85%B5+1+%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1.png?auto=compress,format" },
+  { title: "SK Telecom A. / Series 2",     thumb: "https://images.prismic.io/alcre/9232e485-bb25-43f6-b60b-b0042c15c96b_%EB%B6%80%ED%83%81%ED%97%A4%EC%96%B42_00.jpg?auto=compress,format" },
+  { title: "SK Telecom X Caliber",         thumb: "https://images.prismic.io/alcre/08b8f0a4-6410-4b3c-8941-ddd9178a3123_%EC%8B%9C%EA%B3%A0%EB%A5%B4%EC%9E%90%EB%B8%8C_00.jpg?auto=format,compress" },
+  { title: "Korea Investment / ACE ETF",   thumb: "https://images.prismic.io/alcre/bbc5c4d1-54ca-4dcb-b0d5-7a221ac4e46d_%E1%84%92%E1%85%A1%E1%86%AB%E1%84%90%E1%85%AE_ACEETF_00_scale.jpg?auto=compress,format" },
+  { title: "SK Telecom A. / Era",          thumb: "https://images.prismic.io/alcre/11838b80-8ad2-4e60-86a3-9c6fa802a99f_AI%EC%9D%98%EA%B8%B0%EC%9B%90_00.jpg?auto=compress,format" },
+  { title: "GALAXY Z FLIP 5",             thumb: "https://images.prismic.io/alcre/e626be2d-59d3-42f3-b4a8-cb9e475d1292_SKT_Zflip5_00.jpg?auto=compress,format" },
+  { title: "SK Telecom / 0Youth",         thumb: "https://images.prismic.io/alcre/3093d8a9-7777-4fea-810b-ddd3bca477c8_SKT_%EB%90%9C%EB%8C%80%EB%8F%842_00.jpg?auto=compress,format" },
+  { title: "Korea Investment Mgmt",       thumb: "https://images.prismic.io/alcre/69458c0e-5d33-4210-85be-c41d072df69f_pr0101.webp?auto=compress,format" },
+  { title: "AHC / Premier Ampoule",       thumb: "https://images.prismic.io/alcre/4b5ca90d-280e-4d3f-a155-9d7bdbfc7c15_pr0201.webp?auto=compress,format" },
+  { title: "NOBLE Design Film",           thumb: "https://images.prismic.io/alcre/02fe5831-e6dd-4f7c-9165-164f0e56b08e_pr00245.webp?auto=compress,format" },
+  { title: "OERA CALIBRATOR",            thumb: "https://images.prismic.io/alcre/f0a64fad-a953-4ad2-9baa-dc68a8b68ae6_pr0401.webp?auto=compress,format" },
+  { title: "V&A BEAUTY",                 thumb: "https://images.prismic.io/alcre/f89f696a-2478-4634-8a82-7f004dc9523e_pr0501.webp?auto=compress,format" },
+  { title: "Sulwhasoo / First Care",     thumb: "https://images.prismic.io/alcre/a5b5d781-0124-4824-a664-09e57cf2f020_pr2901.webp?auto=compress,format" },
+  { title: "AESTRA / ATOBARRIER",        thumb: "https://images.prismic.io/alcre/a5ce2a4b-83c5-45cd-b7ab-4926a4c6cf11_pr3001.webp?auto=compress,format" },
+  { title: "BTS UNIVERSE",              thumb: "https://images.prismic.io/alcre/ae7f7d37-e471-4344-b6b3-590ec27def86_0801.webp?auto=compress,format" },
+  { title: "SK Telecom WE_ING",         thumb: "https://images.prismic.io/alcre/403aff5c-6944-4738-b61f-c80b4265a0d0_pr0901.webp?auto=format,compress" },
+  { title: "SIENU Launching",           thumb: "https://images.prismic.io/alcre/7835ac81-82fe-412b-bc40-081f96b063f2_pr0601.webp?auto=compress,format" },
+  { title: "SIENU / TIMEBRACE SERUM",   thumb: "https://images.prismic.io/alcre/7dc8388d-9e6f-411a-82be-62bab89c9f14_pr0701.webp?auto=compress,format" },
+];
+
+const N = works.length;
+const GAP = 10;
+
+/* build cards + ticks */
+const track      = document.getElementById('track');
+const sceneTitle = document.getElementById('sceneTitle');
+const tickerEl   = document.getElementById('ticker');
+
+works.forEach((w, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `<img src="${w.thumb}" alt="${w.title}" loading="${i < 6 ? 'eager' : 'lazy'}"/>`;
+  track.appendChild(card);
+
+  const t = document.createElement('div');
+  t.className = 'tick';
+  tickerEl.appendChild(t);
+});
+
+const cards = document.querySelectorAll('.card');
+const ticks  = document.querySelectorAll('.tick');
+
+/* sizing */
+let cw, ch, totalW, scrollDist;
+
+function measure() {
+  const vh = window.innerHeight;
+  ch = vh * 0.60;          // 60vh tall
+  cw = ch * (9 / 16);      // 9:16
+
+  cards.forEach(c => {
+    c.style.width  = cw + 'px';
+    c.style.height = ch + 'px';
+  });
+
+  totalW     = N * (cw + GAP) - GAP;
+  scrollDist = Math.max(totalW - window.innerWidth * 0.9, 0);
+
+  document.getElementById('spacer').style.height = (scrollDist + vh) + 'px';
+  track.style.width = totalW + 'px';
+
+  /* ticker heights — taller in middle, shorter at ends */
+  ticks.forEach((t, i) => {
+    const mid  = (N - 1) / 2;
+    const dist = Math.abs(i - mid) / mid;          // 0 at centre, 1 at edges
+    const h    = Math.round(36 - dist * 20);       // 36px centre → 16px edge
+    t.style.height = h + 'px';
+  });
+}
+
+measure();
+
+/* GSAP scroll → track x */
+let st;
+function buildST() {
+  if (st) st.kill();
+  st = gsap.to(track, {
+    x: -scrollDist,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#spacer',
+      start: 'top top',
+      end:   'bottom bottom',
+      scrub: 1.2,
+    }
+  });
+}
+buildST();
+
+/* ── rAF: tilt / scale / opacity ──────────────────────────────
+   Reference behaviour:
+   • Center card  → upright, slightly larger, full opacity
+   • Cards left of center  → rotate clockwise  (positive deg, lean right away from center)
+     Wait — looking at the screenshot again:
+     Left cards lean to the LEFT  (negative rotation from their own bottom)
+     Right cards lean to the RIGHT (positive rotation)
+   • transform-origin: bottom-center so they fan like spread cards
+   • The further from center → more tilt + smaller + dimmer
+─────────────────────────────────────────────────────────────── */
+const TILT_MAX    = 14;    // max degrees
+const SCALE_CTR   = 1.06;
+const SCALE_EDGE  = 0.78;
+const OPACITY_CTR = 1;
+const OPACITY_EDGE = 0.5;
+const FALLOFF     = 1.1;   // controls how quickly tilt maxes out (vw units)
+
+let lastActive = -1;
+
+function raf() {
+  const x  = gsap.getProperty(track, 'x');
+  const vw = window.innerWidth;
+  const cx = vw / 2;
+
+  let closestD  = Infinity;
+  let activeIdx = 0;
+
+  cards.forEach((card, i) => {
+    /* card centre in viewport space */
+    const cardCx = x + i * (cw + GAP) + cw / 2 + (vw - totalW) / 2;
+    /* signed distance from viewport centre, normalised to vw */
+    const d = (cardCx - cx) / (vw * FALLOFF);
+    const dC = Math.max(-1, Math.min(1, d)); // clamp −1…1
+
+    /*
+      d < 0 → card is LEFT of center → lean left  → negative deg
+      d > 0 → card is RIGHT of center → lean right → positive deg
+    */
+    const tilt    = dC * TILT_MAX;
+    const absD    = Math.abs(dC);
+    const scale   = SCALE_CTR - (SCALE_CTR - SCALE_EDGE)   * absD;
+    const opacity = OPACITY_CTR - (OPACITY_CTR - OPACITY_EDGE) * absD;
+
+    card.style.transformOrigin = '50% 100%';
+    card.style.transform = `rotate(${tilt}deg) scale(${scale})`;
+    card.style.opacity   = opacity;
+    card.style.zIndex    = Math.round(50 - absD * 40);
+
+    const realD = Math.abs(cardCx - cx);
+    if (realD < closestD) { closestD = realD; activeIdx = i; }
+  });
+
+  if (activeIdx !== lastActive) {
+    lastActive = activeIdx;
+    sceneTitle.textContent = works[activeIdx].title;
+    ticks.forEach((t, i) => t.classList.toggle('active', i === activeIdx));
+  }
+
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+window.addEventListener('resize', () => { measure(); buildST(); });
+</script>
+</body>
+</html>
