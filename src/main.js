@@ -394,4 +394,103 @@ const reelsWorks = [
     window.addEventListener('resize', () => { reelsMeasure(); buildReelsST(); });
 })();
 
+/* ═══════════════════════ AUTOMATION FLOW (OUR BUILDS) ═══════════════════════ */
+(function initAutomationFlow() {
+    const container = document.querySelector('.automation-container');
+    const content = document.getElementById('automation-content');
+    const progressBar = document.getElementById('automation-progress-bar');
+    const spineActive = document.getElementById('spine-active');
+    const spineParticle = document.getElementById('spine-particle');
+    const nodes = document.querySelectorAll('.automation-node');
+    const pips = document.querySelectorAll('.pip');
+    const sidePips = document.getElementById('side-pips');
+    const outro = document.getElementById('automation-outro');
+
+    if (!container || !content) return;
+
+    const scrollHeight = 500; // vh scroll space
+    const maxTranslate = 400; // vh
+    const activeNodes = new Set();
+
+    // Hide pips initially
+    gsap.set(sidePips, { opacity: 0 });
+
+    function triggerPulse(i) {
+        const el = document.getElementById('pulse-' + i);
+        if (!el) return;
+        el.style.transition = 'none';
+        el.style.transform = 'scale(0.8)';
+        el.style.opacity = '0.8';
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                el.style.transition = 'transform 1.4s ease-out, opacity 1.4s ease-out';
+                el.style.transform = 'scale(2.2)';
+                el.style.opacity = '0';
+            });
+        });
+    }
+
+    ScrollTrigger.create({
+        trigger: container,
+        start: "top top",
+        end: `+=${scrollHeight}%`,
+        pin: true,
+        scrub: 1,
+        onUpdate: (self) => {
+            const progress = self.progress;
+
+            // 1. Progress bar
+            if (progressBar) {
+                progressBar.style.width = (progress * 100) + '%';
+            }
+
+            // 2. Visually scroll the content upwards
+            gsap.set(content, { y: `${-progress * maxTranslate}vh` });
+
+            // 3. Show/Hide Pips
+            if (progress > 0.05 && progress < 0.95) {
+                gsap.to(sidePips, { opacity: 1, duration: 0.3, overwrite: true });
+            } else {
+                gsap.to(sidePips, { opacity: 0, duration: 0.3, overwrite: true });
+            }
+
+            // 4. Update Spine
+            const spineProgress = Math.max(0, Math.min(1, (progress - 0.05) / 0.85));
+            gsap.set(spineActive, { height: `${spineProgress * 100}%` });
+            gsap.set(spineParticle, { top: `${spineProgress * 100}%`, opacity: spineProgress > 0 ? 1 : 0 });
+
+            // 5. Activate Nodes + Pips + Pulse
+            nodes.forEach((node, i) => {
+                const nodeY = 148 + (i * 64);
+                const viewportY = nodeY - (progress * maxTranslate);
+                const isActive = viewportY > 30 && viewportY < 70;
+
+                if (isActive && !activeNodes.has(i)) {
+                    activeNodes.add(i);
+                    node.classList.add('active');
+                    if (pips[i]) pips[i].classList.add('active');
+                    triggerPulse(i);
+                } else if (!isActive && activeNodes.has(i)) {
+                    activeNodes.delete(i);
+                    node.classList.remove('active');
+                    if (pips[i]) pips[i].classList.remove('active');
+                }
+            });
+
+            // 6. Outro Reveal
+            if (progress > 0.92) {
+                outro.classList.add('visible');
+            } else {
+                outro.classList.remove('visible');
+            }
+        },
+        onLeave: () => {
+            gsap.to(sidePips, { opacity: 0, duration: 0.3 });
+        },
+        onLeaveBack: () => {
+            gsap.to(sidePips, { opacity: 0, duration: 0.3 });
+        }
+    });
+})();
+
 console.log('⚡ Zency Studios — Ready');
