@@ -13,26 +13,196 @@ lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => lenis.raf(time * 1000));
 gsap.ticker.lagSmoothing(0);
 
-/* ═══════════════════════ HERO ANIMATION ═══════════════════════ */
+/* ═══════════════════════ HERO ANIMATION — CINEMATIC INTRO ═══════════════════════ */
+
+/* ── Particle Canvas ── */
+(function initHeroParticles() {
+    const canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    const particles = [];
+    const PARTICLE_COUNT = 80;
+    const CONNECT_DIST = 120;
+    const MAX_SPEED = 0.4;
+
+    function resize() {
+        w = canvas.width = canvas.offsetWidth;
+        h = canvas.height = canvas.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * MAX_SPEED,
+            vy: (Math.random() - 0.5) * MAX_SPEED,
+            r: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.1,
+        });
+    }
+
+    function drawParticles() {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+
+            // Move
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
+
+            // Draw dot
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(251, 255, 0, ${p.opacity})`;
+            ctx.fill();
+
+            // Connect nearby particles
+            for (let j = i + 1; j < particles.length; j++) {
+                const q = particles[j];
+                const dx = p.x - q.x;
+                const dy = p.y - q.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < CONNECT_DIST) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(q.x, q.y);
+                    ctx.strokeStyle = `rgba(251, 255, 0, ${0.06 * (1 - dist / CONNECT_DIST)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(drawParticles);
+    }
+    requestAnimationFrame(drawParticles);
+})();
+
+/* ── Magnetic Cursor Glow ── */
+(function initCursorGlow() {
+    const glow = document.getElementById('hero-cursor-glow');
+    const hero = document.getElementById('hero');
+    if (!glow || !hero) return;
+
+    let mx = -500, my = -500;
+    let cx = -500, cy = -500;
+
+    hero.addEventListener('mouseenter', () => { glow.style.opacity = '1'; });
+    hero.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+    hero.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+
+    function lerpCursor() {
+        cx += (mx - cx) * 0.08;
+        cy += (my - cy) * 0.08;
+        glow.style.left = cx + 'px';
+        glow.style.top = cy + 'px';
+        requestAnimationFrame(lerpCursor);
+    }
+    requestAnimationFrame(lerpCursor);
+})();
+
+/* ── Cinematic Title Reveal Timeline ── */
 const heroText = new SplitType('#hero-text', { types: 'chars' });
 
+const heroTL = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+// 1. Fade in orbs
+heroTL.to('.hero-orb', {
+    opacity: 1,
+    duration: 2,
+    stagger: 0.3,
+}, 0);
+
+// 2. Show HUD elements
+heroTL.to('.hero-hud', {
+    opacity: 1,
+    duration: 0.8,
+    stagger: 0.15,
+}, 0.4);
+
+// 3. Decorative lines expand
+heroTL.to('.hero-line', {
+    scaleX: 1,
+    duration: 1.4,
+    ease: 'power3.inOut',
+    stagger: 0.2,
+}, 0.5);
+
+// 4. Title characters cinematic flip-in
 gsap.set('#hero-text', { opacity: 1 });
-gsap.from(heroText.chars, {
+heroTL.from(heroText.chars, {
     y: 120,
     opacity: 0,
     rotateX: -90,
     stagger: 0.04,
     duration: 1.2,
     ease: 'power4.out',
-    delay: 0.3,
-});
+}, 0.6);
 
-gsap.to('.hero-sub', {
+// 5. Glitch layers appear
+heroTL.to('.hero-glitch-layer', {
+    opacity: 1,
+    duration: 0.3,
+}, 1.5);
+
+// 6. Subtitle fade + line expand
+heroTL.to('.hero-sub', {
     opacity: 1,
     y: 0,
     duration: 1,
     ease: 'power3.out',
-    delay: 1.2,
+    onComplete: () => {
+        document.getElementById('hero-sub')?.classList.add('visible');
+    },
+}, 1.4);
+
+// 7. Scroll indicator
+heroTL.to('#hero-scroll-indicator', {
+    opacity: 1,
+    duration: 0.8,
+    ease: 'power2.out',
+}, 2);
+
+/* ── Hero scroll parallax (fade out on scroll) ── */
+gsap.to('.hero-title-wrap', {
+    y: -80,
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+    },
+});
+
+gsap.to('.hero-sub', {
+    y: -40,
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: '60% top',
+        end: 'bottom top',
+        scrub: true,
+    },
+});
+
+gsap.to('#hero-scroll-indicator', {
+    opacity: 0,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.hero',
+        start: '20% top',
+        end: '40% top',
+        scrub: true,
+    },
 });
 
 /* ═══════════════════════ EXPERTISE — 3D CARD SLIDER ═══════════════════════ */
@@ -63,12 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide all card text initially, show only the top card's text
     gsap.set('.copy h1 .char', { y: -200 });
     gsap.set('.slider .card:last-child .copy h1 .char', { y: 0 });
+
+    // Start auto-play
+    startAutoPlay();
 });
 
-document.addEventListener('click', (e) => {
+/* Shared card-cycle logic */
+function cycleCard() {
     if (isAnimating) return;
-    if (!e.target.closest('.slider')) return;
-
     isAnimating = true;
 
     const slider = document.querySelector('.slider');
@@ -105,6 +277,28 @@ document.addEventListener('click', (e) => {
             stagger: 0.05,
         });
     }
+}
+
+/* Auto-play every 2 seconds */
+let autoPlayInterval = null;
+
+function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(cycleCard, 2000);
+}
+
+function stopAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+    }
+}
+
+/* Click to cycle + reset auto-play timer */
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.slider')) return;
+    cycleCard();
+    startAutoPlay(); // reset the 2s timer after manual click
 });
 
 /* ═══════════════════════ MARQUEE ANIMATIONS ═══════════════════════ */

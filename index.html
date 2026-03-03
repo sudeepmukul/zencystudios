@@ -14,10 +14,49 @@
 <body>
 
     <!-- ═══════════════════════ HERO ═══════════════════════ -->
-    <section class="hero">
+    <section class="hero" id="hero">
+        <!-- Animated background layers -->
+        <canvas id="hero-particles"></canvas>
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
         <div class="hero-grain"></div>
-        <h1 id="hero-text">ZENCY STUDIOS</h1>
-        <p class="hero-sub">Creative Marketing Agency</p>
+        <div class="hero-scanlines"></div>
+        <div class="hero-vignette"></div>
+
+        <!-- Corner HUD elements -->
+        <div class="hero-hud hero-hud-tl"><span class="hud-dot"></span> LIVE</div>
+        <div class="hero-hud hero-hud-tr">2026</div>
+        <div class="hero-hud hero-hud-bl">ZENCY.SYS</div>
+        <div class="hero-hud hero-hud-br">v3.0</div>
+
+        <!-- Horizontal decorative lines -->
+        <div class="hero-line hero-line-top"></div>
+        <div class="hero-line hero-line-bottom"></div>
+
+        <!-- Main title with glitch layers -->
+        <div class="hero-title-wrap" id="hero-title-wrap">
+            <h1 id="hero-text" class="hero-glitch" data-text="ZENCY STUDIOS">ZENCY STUDIOS</h1>
+            <h1 class="hero-glitch-layer hero-glitch-r" aria-hidden="true">ZENCY STUDIOS</h1>
+            <h1 class="hero-glitch-layer hero-glitch-b" aria-hidden="true">ZENCY STUDIOS</h1>
+        </div>
+
+        <p class="hero-sub" id="hero-sub">
+            <span class="hero-sub-line"></span>
+            Creative Marketing Agency
+            <span class="hero-sub-line"></span>
+        </p>
+
+        <!-- Scroll indicator -->
+        <div class="hero-scroll-indicator" id="hero-scroll-indicator">
+            <div class="hero-scroll-text">SCROLL</div>
+            <div class="hero-scroll-track">
+                <div class="hero-scroll-thumb"></div>
+            </div>
+        </div>
+
+        <!-- Magnetic cursor follower -->
+        <div class="hero-cursor-glow" id="hero-cursor-glow"></div>
     </section>
 
     <!-- ═══════════════════════ EXPERTISE (3D Slider — ref Folder 2) ═══════════════════════ -->
@@ -70,6 +109,11 @@
                     <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
                     <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
                     <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Craft</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
                     <!-- duplicate for seamless loop -->
                     <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
                     <div class="item with-text">
@@ -78,60 +122,98 @@
                     <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
                     <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
                     <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Craft</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-2">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
                     <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Visuals</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Pixel</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <!-- duplicate -->
                     <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Visuals</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Pixel</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-3">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Creative</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Art</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
+                    <!-- duplicate -->
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Creative</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Art</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-4">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Flow</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Style</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <!-- duplicate -->
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Flow</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Style</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
                 </div>
             </div>
         </div>
@@ -152,6 +234,12 @@
                         <h1>Cut</h1>
                     </div>
                     <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Trim</h1>
+                    </div>
+                    <!-- duplicate -->
                     <div class="item with-text">
                         <h1>Edit</h1>
                     </div>
@@ -161,28 +249,102 @@
                         <h1>Cut</h1>
                     </div>
                     <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Trim</h1>
+                    </div>
                 </div>
             </div>
             <div class="marquee-container" id="vid-marquee-2">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Render</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Color</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Grade</h1>
+                    </div>
+                    <!-- duplicate -->
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Render</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
                     <div class="item with-text">
                         <h1>Color</h1>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Grade</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-container" id="vid-marquee-3">
+                <div class="marquee">
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Motion</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>VFX</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <!-- duplicate -->
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Motion</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>VFX</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                </div>
+            </div>
+            <div class="marquee-container" id="vid-marquee-4">
+                <div class="marquee">
+                    <div class="item with-text">
+                        <h1>Sequence</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Frame</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <!-- duplicate -->
+                    <div class="item with-text">
+                        <h1>Sequence</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item with-text">
+                        <h1>Frame</h1>
+                    </div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
                 </div>
             </div>
         </div>
