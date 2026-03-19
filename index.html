@@ -4,51 +4,156 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══ Primary SEO Meta ══ -->
+    <title>Zency Studios | Creative Digital Agency — Video Editing, Graphic Design & Social Media Growth India</title>
     <meta name="description"
-        content="Zency Studios — A Creative Marketing Agency specializing in branding, graphic design, video editing, and AI automation." />
-    <title>Zency Studios | Creative Marketing Agency</title>
+        content="Zency Studios is a creative digital agency in India offering video editing, graphic design, branding, social media growth, and AI automation services for startups, influencers & local businesses." />
+    <meta name="keywords"
+        content="video editing agency, reel editing services, YouTube editor India, short form content agency, graphic design agency India, social media design services, branding studio, social media marketing agency India, Instagram growth services, content strategy agency, UI UX design agency, website design India, Zency Studios" />
+    <meta name="author" content="Zency Studios" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zencystudios.com/" />
+
+    <!-- ══ Open Graph ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zency Studios" />
+    <meta property="og:title" content="Zency Studios | Creative Digital Agency — Video Editing, Graphic Design & Growth" />
+    <meta property="og:description"
+        content="Connecting businesses with top-tier creators. High-quality video editing, graphic design, branding, and social media growth services in India." />
+    <meta property="og:url" content="https://zencystudios.com/" />
+    <meta property="og:image" content="https://zencystudios.com/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ══ Twitter Card ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zency Studios | Creative Digital Agency" />
+    <meta name="twitter:description"
+        content="Video editing, graphic design, branding & social media growth for startups, influencers and local businesses." />
+    <meta name="twitter:image" content="https://zencystudios.com/assets/og-image.jpg" />
+
+    <!-- ══ Favicon ══ -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+    <!-- ══ JSON-LD Structured Data ══ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://zencystudios.com/#organization",
+                "name": "Zency Studios",
+                "url": "https://zencystudios.com",
+                "description": "Zency Studios is a creative digital agency that connects businesses with skilled freelancers to deliver high-quality content, branding, and digital solutions.",
+                "foundingDate": "2025",
+                "founder": [
+                    { "@type": "Person", "name": "Sudeep Mukul", "jobTitle": "Founder & CEO" },
+                    { "@type": "Person", "name": "Shaik Farhan", "jobTitle": "Co-Founder & Creative Director" },
+                    { "@type": "Person", "name": "Mohd Azeem Arshad", "jobTitle": "Co-Founder & Project Manager" }
+                ],
+                "employee": [
+                    { "@type": "Person", "name": "Praneet Moganti", "jobTitle": "Chief Marketing Officer" }
+                ],
+                "sameAs": []
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://zencystudios.com/#website",
+                "url": "https://zencystudios.com",
+                "name": "Zency Studios",
+                "publisher": { "@id": "https://zencystudios.com/#organization" }
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Video Editing",
+                "provider": { "@id": "https://zencystudios.com/#organization" },
+                "name": "Video Editing Services",
+                "description": "Instagram Reels editing, YouTube video editing, short-form content creation, cinematic edits, and podcast editing."
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Graphic Design",
+                "provider": { "@id": "https://zencystudios.com/#organization" },
+                "name": "Graphic Design Services",
+                "description": "Social media post design, brand identity design, thumbnails & posters, and ad creatives."
+            },
+            {
+                "@type": "Service",
+                "serviceType": "Social Media Marketing",
+                "provider": { "@id": "https://zencystudios.com/#organization" },
+                "name": "Social Media Growth",
+                "description": "Content strategy, Instagram growth, hook-based reels creation, and trend-based content marketing."
+            },
+            {
+                "@type": "Service",
+                "serviceType": "AI Automation",
+                "provider": { "@id": "https://zencystudios.com/#organization" },
+                "name": "AI & Automation Services",
+                "description": "Workflow automation with n8n, AI assistants, intelligent agents, and data-driven analytics."
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
 
+    <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="#hero" class="nav-logo" aria-label="Zency Studios home">⚡ ZENCY</a>
+        <ul class="nav-links">
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#graphic-design">Design</a></li>
+            <li><a href="#video-editing">Video</a></li>
+            <li><a href="#reels-content">Reels</a></li>
+            <li><a href="#ai-automation">AI</a></li>
+            <li><a href="#our-builds">Builds</a></li>
+            <li><a href="#about">Team</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
     <!-- ═══════════════════════ HERO ═══════════════════════ -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" aria-label="Hero banner">
         <!-- Animated background layers -->
-        <canvas id="hero-particles"></canvas>
-        <div class="hero-orb hero-orb-1"></div>
-        <div class="hero-orb hero-orb-2"></div>
-        <div class="hero-orb hero-orb-3"></div>
-        <div class="hero-grain"></div>
-        <div class="hero-scanlines"></div>
-        <div class="hero-vignette"></div>
+        <canvas id="hero-particles" aria-hidden="true"></canvas>
+        <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-scanlines" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
 
         <!-- Corner HUD elements -->
-        <div class="hero-hud hero-hud-tl"><span class="hud-dot"></span> LIVE</div>
-        <div class="hero-hud hero-hud-tr">2026</div>
-        <div class="hero-hud hero-hud-bl">ZENCY.SYS</div>
-        <div class="hero-hud hero-hud-br">v3.0</div>
+        <div class="hero-hud hero-hud-tl" aria-hidden="true"><span class="hud-dot"></span> LIVE</div>
+        <div class="hero-hud hero-hud-tr" aria-hidden="true">2026</div>
+        <div class="hero-hud hero-hud-bl" aria-hidden="true">ZENCY.SYS</div>
+        <div class="hero-hud hero-hud-br" aria-hidden="true">v3.0</div>
 
         <!-- Horizontal decorative lines -->
-        <div class="hero-line hero-line-top"></div>
-        <div class="hero-line hero-line-bottom"></div>
+        <div class="hero-line hero-line-top" aria-hidden="true"></div>
+        <div class="hero-line hero-line-bottom" aria-hidden="true"></div>
 
-        <!-- Main title with glitch layers -->
+        <!-- Main title with glitch layers — SINGLE H1 for the entire page -->
         <div class="hero-title-wrap" id="hero-title-wrap">
             <h1 id="hero-text" class="hero-glitch" data-text="ZENCY STUDIOS">ZENCY STUDIOS</h1>
-            <h1 class="hero-glitch-layer hero-glitch-r" aria-hidden="true">ZENCY STUDIOS</h1>
-            <h1 class="hero-glitch-layer hero-glitch-b" aria-hidden="true">ZENCY STUDIOS</h1>
+            <span class="hero-glitch-layer hero-glitch-r" aria-hidden="true">ZENCY STUDIOS</span>
+            <span class="hero-glitch-layer hero-glitch-b" aria-hidden="true">ZENCY STUDIOS</span>
         </div>
 
         <p class="hero-sub" id="hero-sub">
             <span class="hero-sub-line"></span>
-            Creative Marketing Agency
+            Creative Digital Agency — Video Editing, Graphic Design &amp; Social Media Growth
             <span class="hero-sub-line"></span>
         </p>
 
         <!-- Scroll indicator -->
-        <div class="hero-scroll-indicator" id="hero-scroll-indicator">
+        <div class="hero-scroll-indicator" id="hero-scroll-indicator" aria-hidden="true">
             <div class="hero-scroll-text">SCROLL</div>
             <div class="hero-scroll-track">
                 <div class="hero-scroll-thumb"></div>
@@ -56,302 +161,302 @@
         </div>
 
         <!-- Magnetic cursor follower -->
-        <div class="hero-cursor-glow" id="hero-cursor-glow"></div>
+        <div class="hero-cursor-glow" id="hero-cursor-glow" aria-hidden="true"></div>
     </section>
 
-    <!-- ═══════════════════════ EXPERTISE (3D Slider — ref Folder 2) ═══════════════════════ -->
-    <section class="expertise" id="expertise">
+    <!-- ═══════════════════════ EXPERTISE (3D Slider) ═══════════════════════ -->
+    <section class="expertise" id="expertise" aria-label="Our core expertise areas">
         <h2 class="section-label">Our Expertise</h2>
         <div class="slider">
-            <div class="card">
-                <img src="./assets/expertise/01.jpg" alt="Marketing" />
+            <article class="card">
+                <img src="./assets/expertise/01.jpg" alt="Marketing strategy planning session at Zency Studios" width="400" height="300" fetchpriority="high" />
                 <div class="copy">
-                    <h1>Marketing</h1>
+                    <h3>Marketing</h3>
                 </div>
-            </div>
-            <div class="card">
-                <img src="./assets/expertise/02.jpg" alt="Branding" />
+            </article>
+            <article class="card">
+                <img src="./assets/expertise/02.jpg" alt="Brand identity and logo design by Zency Studios" width="400" height="300" loading="lazy" />
                 <div class="copy">
-                    <h1>Branding</h1>
+                    <h3>Branding</h3>
                 </div>
-            </div>
-            <div class="card">
-                <img src="./assets/expertise/03.jpg" alt="Strategy" />
+            </article>
+            <article class="card">
+                <img src="./assets/expertise/03.jpg" alt="Content strategy and growth planning" width="400" height="300" loading="lazy" />
                 <div class="copy">
-                    <h1>Strategy</h1>
+                    <h3>Strategy</h3>
                 </div>
-            </div>
-            <div class="card">
-                <img src="./assets/expertise/04.jpg" alt="Content" />
+            </article>
+            <article class="card">
+                <img src="./assets/expertise/04.jpg" alt="Creative content creation for social media" width="400" height="300" loading="lazy" />
                 <div class="copy">
-                    <h1>Content</h1>
+                    <h3>Content</h3>
                 </div>
-            </div>
-            <div class="card">
-                <img src="./assets/expertise/05.jpg" alt="Analytics" />
+            </article>
+            <article class="card">
+                <img src="./assets/expertise/05.jpg" alt="Data analytics and performance insights" width="400" height="300" loading="lazy" />
                 <div class="copy">
-                    <h1>Analytics</h1>
+                    <h3>Analytics</h3>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
-    <!-- ═══════════════════════ GRAPHIC DESIGN SHOWCASE (Marquees — ref Folder 3) ═══════════════════════ -->
-    <section class="showcase-section" id="graphic-design">
+    <!-- ═══════════════════════ GRAPHIC DESIGN SHOWCASE (Marquees) ═══════════════════════ -->
+    <section class="showcase-section" id="graphic-design" aria-label="Graphic design portfolio showcase">
         <h2 class="section-label">Graphic Design</h2>
         <div class="marquees">
             <div class="marquee-container" id="marquee-1">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Social media post design — vibrant brand visual" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Design</h1>
+                        <span class="marquee-heading" aria-hidden="true">Design</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Brand identity design — logo and color palette" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Poster design — event promotional artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Ad creative — digital campaign visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Thumbnail design — YouTube video cover art" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Craft</h1>
+                        <span class="marquee-heading" aria-hidden="true">Craft</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Social media carousel design — swipe post" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate for seamless loop -->
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Social media post design — vibrant brand visual" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Design</h1>
+                        <span class="marquee-heading" aria-hidden="true">Design</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Brand identity design — logo and color palette" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Poster design — event promotional artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Ad creative — digital campaign visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Thumbnail design — YouTube video cover art" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Craft</h1>
+                        <span class="marquee-heading" aria-hidden="true">Craft</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Social media carousel design — swipe post" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-2">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Instagram story design — engagement-focused visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Infographic design — data visualization artwork" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Visuals</h1>
+                        <span class="marquee-heading" aria-hidden="true">Visuals</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="Brand packaging design — product visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Digital illustration — custom artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="Flyer design — promotional graphic" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Pixel</h1>
+                        <span class="marquee-heading" aria-hidden="true">Pixel</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Newsletter design — email marketing visual" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate -->
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Instagram story design — engagement-focused visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Infographic design — data visualization artwork" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Visuals</h1>
+                        <span class="marquee-heading" aria-hidden="true">Visuals</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="Brand packaging design — product visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Digital illustration — custom artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="Flyer design — promotional graphic" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Pixel</h1>
+                        <span class="marquee-heading" aria-hidden="true">Pixel</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Newsletter design — email marketing visual" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-3">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="Creative poster — artistic visual composition" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Creative</h1>
+                        <span class="marquee-heading" aria-hidden="true">Creative</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="Typography design — decorative lettering artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Motion graphic still — animated design frame" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="Social media ad — promotional campaign visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Social media post design — brand visual repeat" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Art</h1>
+                        <span class="marquee-heading" aria-hidden="true">Art</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Brand identity design — visual system" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate -->
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="Creative poster — artistic visual composition" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Creative</h1>
+                        <span class="marquee-heading" aria-hidden="true">Creative</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="Typography design — decorative lettering artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Motion graphic still — animated design frame" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="Social media ad — promotional campaign visual" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Social media post design — brand visual repeat" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Art</h1>
+                        <span class="marquee-heading" aria-hidden="true">Art</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Brand identity design — visual system" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="marquee-4">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Poster design — creative event artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Digital ad creative — performance campaign" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Flow</h1>
+                        <span class="marquee-heading" aria-hidden="true">Flow</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="YouTube thumbnail — click-optimized design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Carousel post — content engagement design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Story highlight cover — Instagram branding" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Style</h1>
+                        <span class="marquee-heading" aria-hidden="true">Style</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Infographic — visual data storytelling" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate -->
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Poster design — creative event artwork" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Digital ad creative — performance campaign" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Flow</h1>
+                        <span class="marquee-heading" aria-hidden="true">Flow</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="YouTube thumbnail — click-optimized design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Carousel post — content engagement design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Story highlight cover — Instagram branding" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Style</h1>
+                        <span class="marquee-heading" aria-hidden="true">Style</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Infographic — visual data storytelling" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ═══════════════════════ VIDEO EDITING SHOWCASE ═══════════════════════ -->
-    <section class="showcase-section video-section" id="video-editing">
+    <section class="showcase-section video-section" id="video-editing" aria-label="Video editing portfolio showcase">
         <h2 class="section-label">Video Editing</h2>
         <div class="marquees">
             <div class="marquee-container" id="vid-marquee-1">
                 <div class="marquee">
                     <div class="item with-text">
-                        <h1>Edit</h1>
+                        <span class="marquee-heading" aria-hidden="true">Edit</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Video editing — professional cut and transition" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Reel editing — short-form content creation" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Cut</h1>
+                        <span class="marquee-heading" aria-hidden="true">Cut</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Cinematic edit — film-style color grading" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="YouTube video edit — long-form content" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="Podcast editing — audio-visual production" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Trim</h1>
+                        <span class="marquee-heading" aria-hidden="true">Trim</span>
                     </div>
                     <!-- duplicate -->
                     <div class="item with-text">
-                        <h1>Edit</h1>
+                        <span class="marquee-heading" aria-hidden="true">Edit</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Video editing — professional cut and transition" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img6.jpg" alt="Reel editing — short-form content creation" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Cut</h1>
+                        <span class="marquee-heading" aria-hidden="true">Cut</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img7.jpg" alt="Cinematic edit — film-style color grading" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="YouTube video edit — long-form content" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img9.jpg" alt="Podcast editing — audio-visual production" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Trim</h1>
+                        <span class="marquee-heading" aria-hidden="true">Trim</span>
                     </div>
                 </div>
             </div>
             <div class="marquee-container" id="vid-marquee-2">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Video rendering — final export and delivery" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Render</h1>
+                        <span class="marquee-heading" aria-hidden="true">Render</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="Color grading — cinematic look development" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Video compositing — layered visual effects" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Color</h1>
+                        <span class="marquee-heading" aria-hidden="true">Color</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="Sound design — audio mixing for video" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="Motion graphics — animated text and elements" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Grade</h1>
+                        <span class="marquee-heading" aria-hidden="true">Grade</span>
                     </div>
                     <!-- duplicate -->
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Video rendering — final export and delivery" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Render</h1>
+                        <span class="marquee-heading" aria-hidden="true">Render</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img11.jpg" alt="Color grading — cinematic look development" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Video compositing — layered visual effects" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Color</h1>
+                        <span class="marquee-heading" aria-hidden="true">Color</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img13.jpg" alt="Sound design — audio mixing for video" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img14.jpg" alt="Motion graphics — animated text and elements" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Grade</h1>
+                        <span class="marquee-heading" aria-hidden="true">Grade</span>
                     </div>
                 </div>
             </div>
             <div class="marquee-container" id="vid-marquee-3">
                 <div class="marquee">
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Motion design — dynamic visual animation" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="VFX shot — visual effects compositing" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Motion</h1>
+                        <span class="marquee-heading" aria-hidden="true">Motion</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Transition design — seamless scene change" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Title sequence — animated intro design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Lower third — broadcast-style text overlay" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>VFX</h1>
+                        <span class="marquee-heading" aria-hidden="true">VFX</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Particle effects — digital visual enhancement" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate -->
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Motion design — dynamic visual animation" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="VFX shot — visual effects compositing" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Motion</h1>
+                        <span class="marquee-heading" aria-hidden="true">Motion</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img1.jpg" alt="Transition design — seamless scene change" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img2.jpg" alt="Title sequence — animated intro design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img3.jpg" alt="Lower third — broadcast-style text overlay" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>VFX</h1>
+                        <span class="marquee-heading" aria-hidden="true">VFX</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img4.jpg" alt="Particle effects — digital visual enhancement" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
             <div class="marquee-container" id="vid-marquee-4">
                 <div class="marquee">
                     <div class="item with-text">
-                        <h1>Sequence</h1>
+                        <span class="marquee-heading" aria-hidden="true">Sequence</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Video sequence — timeline editing workflow" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Multi-cam edit — multi-angle production" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Keyframe animation — precise motion control" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Frame</h1>
+                        <span class="marquee-heading" aria-hidden="true">Frame</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Frame-by-frame — detailed video composition" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Video overlay — picture-in-picture design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="Final render — polished video output" width="300" height="300" loading="lazy" /></div>
                     <!-- duplicate -->
                     <div class="item with-text">
-                        <h1>Sequence</h1>
+                        <span class="marquee-heading" aria-hidden="true">Sequence</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img5.jpg" alt="Video sequence — timeline editing workflow" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img10.jpg" alt="Multi-cam edit — multi-angle production" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img15.jpg" alt="Keyframe animation — precise motion control" width="300" height="300" loading="lazy" /></div>
                     <div class="item with-text">
-                        <h1>Frame</h1>
+                        <span class="marquee-heading" aria-hidden="true">Frame</span>
                     </div>
-                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="" /></div>
-                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="" /></div>
+                    <div class="item"><img src="./assets/showcase/img8.jpg" alt="Frame-by-frame — detailed video composition" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img12.jpg" alt="Video overlay — picture-in-picture design" width="300" height="300" loading="lazy" /></div>
+                    <div class="item"><img src="./assets/showcase/img16.jpg" alt="Final render — polished video output" width="300" height="300" loading="lazy" /></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ REELS CONTENT (Horizontal Scroll — ref refscrolleffect) ═══════════════════════ -->
-    <section class="reels-section" id="reels-content">
+    <!-- ═══════════════════════ REELS CONTENT (Horizontal Scroll) ═══════════════════════ -->
+    <section class="reels-section" id="reels-content" aria-label="Instagram Reels content showcase">
         <h2 class="section-label">Reels Content</h2>
         <div class="reels-pin-wrap" id="reelsPinWrap">
             <div class="reels-scene-title" id="reelsSceneTitle">&nbsp;</div>
@@ -363,41 +468,41 @@
     </section>
 
     <!-- ═══════════════════════ AI & AUTOMATION ═══════════════════════ -->
-    <section class="ai-section" id="ai-automation">
+    <section class="ai-section" id="ai-automation" aria-label="AI and automation services">
         <h2 class="ai-title">AI &amp;<br>Automation</h2>
         <div class="tech-grid">
-            <div class="tech-card">
-                <div class="tech-icon">⚙️</div>
+            <article class="tech-card">
+                <div class="tech-icon" aria-hidden="true">⚙️</div>
                 <h3>n8n</h3>
                 <p>Workflow Automation</p>
-            </div>
-            <div class="tech-card">
-                <div class="tech-icon">🤖</div>
+            </article>
+            <article class="tech-card">
+                <div class="tech-icon" aria-hidden="true">🤖</div>
                 <h3>Clawdbot</h3>
                 <p>AI Assistants</p>
-            </div>
-            <div class="tech-card">
-                <div class="tech-icon">🧠</div>
+            </article>
+            <article class="tech-card">
+                <div class="tech-icon" aria-hidden="true">🧠</div>
                 <h3>AI Agents</h3>
                 <p>Intelligent Automation</p>
-            </div>
-            <div class="tech-card">
-                <div class="tech-icon">📊</div>
+            </article>
+            <article class="tech-card">
+                <div class="tech-icon" aria-hidden="true">📊</div>
                 <h3>Analytics</h3>
                 <p>Data-Driven Insights</p>
-            </div>
+            </article>
         </div>
     </section>
 
     <!-- ═══════════════════════ OUR BUILDS (Automation Flow) ═══════════════════════ -->
-    <section class="automation-container" id="our-builds">
+    <section class="automation-container" id="our-builds" aria-label="Our automation project builds">
         <!-- Fixed overlays -->
-        <div class="automation-bg-grid"></div>
-        <div class="automation-bg-scanlines"></div>
-        <div id="automation-progress-bar"></div>
+        <div class="automation-bg-grid" aria-hidden="true"></div>
+        <div class="automation-bg-scanlines" aria-hidden="true"></div>
+        <div id="automation-progress-bar" aria-hidden="true"></div>
 
         <!-- Side pips -->
-        <div id="side-pips">
+        <div id="side-pips" aria-hidden="true">
             <div class="pip" id="pip-0"></div>
             <div class="pip" id="pip-1"></div>
             <div class="pip" id="pip-2"></div>
@@ -408,15 +513,15 @@
         <div id="automation-content">
             <!-- ── INTRO ── -->
             <div id="automation-intro">
-                <!-- Corner Labels form original -->
-                <span class="corner-label tl">ZENCY.SYS</span>
-                <span class="corner-label tr">v2.0.25</span>
-                <span class="corner-label bl">BOOT OK</span>
-                <span class="corner-label br">◈ LIVE</span>
+                <!-- Corner Labels -->
+                <span class="corner-label tl" aria-hidden="true">ZENCY.SYS</span>
+                <span class="corner-label tr" aria-hidden="true">v2.0.25</span>
+                <span class="corner-label bl" aria-hidden="true">BOOT OK</span>
+                <span class="corner-label br" aria-hidden="true">◈ LIVE</span>
 
                 <div class="automation-intro-tag">◈ INITIALIZING WORKFLOW</div>
-                <h1 class="automation-intro-title">OUR BUILDS</h1>
-                <div class="scroll-hint">
+                <h2 class="automation-intro-title">OUR BUILDS</h2>
+                <div class="scroll-hint" aria-hidden="true">
                     <span class="arrow">↓</span>
                     SCROLL TO DEPLOY
                     <span class="arrow">↓</span>
@@ -424,7 +529,7 @@
             </div>
 
             <!-- ── SPINE ── -->
-            <div id="spine-wrapper">
+            <div id="spine-wrapper" aria-hidden="true">
                 <div id="spine-track"></div>
                 <div id="spine-active"></div>
                 <div id="spine-particle"></div>
@@ -432,7 +537,7 @@
 
             <!-- ── NODES ── -->
             <!-- Node 0 -->
-            <div class="automation-node left" id="node-0" style="top: calc(100vh + 48vh);">
+            <article class="automation-node left" id="node-0" style="top: calc(100vh + 48vh);">
                 <div class="node-text">
                     <div class="node-text-inner">
                         <div class="node-label">◈ PROJECT 01</div>
@@ -442,25 +547,25 @@
                     </div>
                 </div>
                 <div class="node-icon">
-                    <div class="node-icon-glow"></div>
-                    <div class="node-icon-ring-outer"></div>
-                    <div class="node-icon-ring-inner"></div>
+                    <div class="node-icon-glow" aria-hidden="true"></div>
+                    <div class="node-icon-ring-outer" aria-hidden="true"></div>
+                    <div class="node-icon-ring-inner" aria-hidden="true"></div>
                     <div class="node-icon-svg">
                         <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke-width="1"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M12 19l7-7 3 3-7 7-3-3z" />
                             <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
                             <path d="M2 2l7.586 7.586" />
                             <circle cx="11" cy="11" r="2" />
                         </svg>
                     </div>
-                    <div class="node-icon-pulse" id="pulse-0"></div>
+                    <div class="node-icon-pulse" id="pulse-0" aria-hidden="true"></div>
                 </div>
-                <div class="node-connector"></div>
-            </div>
+                <div class="node-connector" aria-hidden="true"></div>
+            </article>
 
             <!-- Node 1 -->
-            <div class="automation-node right" id="node-1" style="top: calc(100vh + 112vh);">
+            <article class="automation-node right" id="node-1" style="top: calc(100vh + 112vh);">
                 <div class="node-text">
                     <div class="node-text-inner">
                         <div class="node-label">◈ PROJECT 02</div>
@@ -470,23 +575,23 @@
                     </div>
                 </div>
                 <div class="node-icon">
-                    <div class="node-icon-glow"></div>
-                    <div class="node-icon-ring-outer"></div>
-                    <div class="node-icon-ring-inner"></div>
+                    <div class="node-icon-glow" aria-hidden="true"></div>
+                    <div class="node-icon-ring-outer" aria-hidden="true"></div>
+                    <div class="node-icon-ring-inner" aria-hidden="true"></div>
                     <div class="node-icon-svg">
                         <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke-width="1"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <rect x="2" y="6" width="15" height="12" rx="2" ry="2" />
                             <polyline points="17 10 22 6 22 18 17 14" />
                         </svg>
                     </div>
-                    <div class="node-icon-pulse" id="pulse-1"></div>
+                    <div class="node-icon-pulse" id="pulse-1" aria-hidden="true"></div>
                 </div>
-                <div class="node-connector"></div>
-            </div>
+                <div class="node-connector" aria-hidden="true"></div>
+            </article>
 
             <!-- Node 2 -->
-            <div class="automation-node left" id="node-2" style="top: calc(100vh + 176vh);">
+            <article class="automation-node left" id="node-2" style="top: calc(100vh + 176vh);">
                 <div class="node-text">
                     <div class="node-text-inner">
                         <div class="node-label">◈ PROJECT 03</div>
@@ -496,23 +601,23 @@
                     </div>
                 </div>
                 <div class="node-icon">
-                    <div class="node-icon-glow"></div>
-                    <div class="node-icon-ring-outer"></div>
-                    <div class="node-icon-ring-inner"></div>
+                    <div class="node-icon-glow" aria-hidden="true"></div>
+                    <div class="node-icon-ring-outer" aria-hidden="true"></div>
+                    <div class="node-icon-ring-inner" aria-hidden="true"></div>
                     <div class="node-icon-svg">
                         <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke-width="1"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
                     </div>
-                    <div class="node-icon-pulse" id="pulse-2"></div>
+                    <div class="node-icon-pulse" id="pulse-2" aria-hidden="true"></div>
                 </div>
-                <div class="node-connector"></div>
-            </div>
+                <div class="node-connector" aria-hidden="true"></div>
+            </article>
 
             <!-- Node 3 -->
-            <div class="automation-node right" id="node-3" style="top: calc(100vh + 240vh);">
+            <article class="automation-node right" id="node-3" style="top: calc(100vh + 240vh);">
                 <div class="node-text">
                     <div class="node-text-inner">
                         <div class="node-label">◈ PROJECT 04</div>
@@ -522,22 +627,22 @@
                     </div>
                 </div>
                 <div class="node-icon">
-                    <div class="node-icon-glow"></div>
-                    <div class="node-icon-ring-outer"></div>
-                    <div class="node-icon-ring-inner"></div>
+                    <div class="node-icon-glow" aria-hidden="true"></div>
+                    <div class="node-icon-ring-outer" aria-hidden="true"></div>
+                    <div class="node-icon-ring-inner" aria-hidden="true"></div>
                     <div class="node-icon-svg">
                         <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke-width="1"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                         </svg>
                     </div>
-                    <div class="node-icon-pulse" id="pulse-3"></div>
+                    <div class="node-icon-pulse" id="pulse-3" aria-hidden="true"></div>
                 </div>
-                <div class="node-connector"></div>
-            </div>
+                <div class="node-connector" aria-hidden="true"></div>
+            </article>
 
             <!-- Node 4 -->
-            <div class="automation-node left" id="node-4" style="top: calc(100vh + 304vh);">
+            <article class="automation-node left" id="node-4" style="top: calc(100vh + 304vh);">
                 <div class="node-text">
                     <div class="node-text-inner">
                         <div class="node-label">◈ PROJECT 05</div>
@@ -547,12 +652,12 @@
                     </div>
                 </div>
                 <div class="node-icon">
-                    <div class="node-icon-glow"></div>
-                    <div class="node-icon-ring-outer"></div>
-                    <div class="node-icon-ring-inner"></div>
+                    <div class="node-icon-glow" aria-hidden="true"></div>
+                    <div class="node-icon-ring-outer" aria-hidden="true"></div>
+                    <div class="node-icon-ring-inner" aria-hidden="true"></div>
                     <div class="node-icon-svg">
                         <svg width="88" height="88" viewBox="0 0 24 24" fill="none" stroke-width="1"
-                            stroke-linecap="round" stroke-linejoin="round">
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="18" cy="5" r="3" />
                             <circle cx="6" cy="12" r="3" />
                             <circle cx="18" cy="19" r="3" />
@@ -560,25 +665,25 @@
                             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
                         </svg>
                     </div>
-                    <div class="node-icon-pulse" id="pulse-4"></div>
+                    <div class="node-icon-pulse" id="pulse-4" aria-hidden="true"></div>
                 </div>
-                <div class="node-connector"></div>
-            </div>
+                <div class="node-connector" aria-hidden="true"></div>
+            </article>
 
             <!-- ── OUTRO ── -->
             <div id="automation-outro">
                 <div class="automation-outro-status">
-                    <div class="automation-outro-dot"></div>
+                    <div class="automation-outro-dot" aria-hidden="true"></div>
                     5 / 5 WORKFLOWS DEPLOYED
                 </div>
-                <h2 class="automation-outro-title">MOREEE<br><span>AUTOMATIONS</span></h2>
+                <h2 class="automation-outro-title">MOREEEE<br><span>AUTOMATIONS</span></h2>
                 <p class="automation-outro-desc">Every manual task is a workflow waiting to be born. We build them all.
                 </p>
                 <button class="automation-outro-btn">
                     AUTOMATE WITH ZENCY
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round"
-                        style="display:inline-block; vertical-align:middle; margin-left:8px;">
+                        style="display:inline-block; vertical-align:middle; margin-left:8px;" aria-hidden="true">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                     </svg>
@@ -589,42 +694,40 @@
     </section>
 
     <!-- ═══════════════════════ WHY US ═══════════════════════ -->
-    <section class="why-us" id="why-us">
+    <section class="why-us" id="why-us" aria-label="Why choose Zency Studios">
         <p class="why-sub">More than Marketing</p>
         <h2 class="why-title">WE ARE<br>ZENCY</h2>
     </section>
 
-    <!-- ═══════════════════════ ABOUT / FOUNDERS (ref Folder 1) ═══════════════════════ -->
-    <section class="team" id="about">
+    <!-- ═══════════════════════ ABOUT / FOUNDERS ═══════════════════════ -->
+    <section class="team" id="about" aria-label="Meet the founding team of Zency Studios">
         <h2 class="section-label" style="color:#e3e3db;">The Founders</h2>
         <div class="profile-images">
-            <div class="img"><img src="./assets/showcase/img1.jpg" alt="Founder 1" /></div>
-            <div class="img"><img src="./assets/showcase/img2.jpg" alt="Founder 2" /></div>
-            <div class="img"><img src="./assets/showcase/img3.jpg" alt="Founder 3" /></div>
-            <div class="img"><img src="./assets/showcase/img4.jpg" alt="Founder 4" /></div>
-            <div class="img"><img src="./assets/showcase/img5.jpg" alt="Founder 5" /></div>
+            <div class="img"><img src="./assets/showcase/img1.jpg" alt="Sudeep Mukul — Founder and CEO of Zency Studios" width="300" height="300" loading="lazy" /></div>
+            <div class="img"><img src="./assets/showcase/img2.jpg" alt="Shaik Farhan — Co-Founder and Creative Director" width="300" height="300" loading="lazy" /></div>
+            <div class="img"><img src="./assets/showcase/img3.jpg" alt="Mohd Azeem Arshad — Co-Founder and Project Manager" width="300" height="300" loading="lazy" /></div>
+            <div class="img"><img src="./assets/showcase/img4.jpg" alt="Praneet Moganti — Chief Marketing Officer" width="300" height="300" loading="lazy" /></div>
         </div>
         <div class="profile-names">
             <div class="name default">
-                <h1>The Squad</h1>
+                <h3>The Squad</h3>
             </div>
             <div class="name">
-                <h1>Sudeep</h1>
+                <h3>Sudeep Mukul</h3>
             </div>
             <div class="name">
-                <h1>Rahul</h1>
+                <h3>Shaik Farhan</h3>
             </div>
             <div class="name">
-                <h1>Priya</h1>
+                <h3>Mohd Azeem Arshad</h3>
             </div>
             <div class="name">
-                <h1>Amit</h1>
-            </div>
-            <div class="name">
-                <h1>Sneha</h1>
+                <h3>Praneet Moganti</h3>
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
     <footer class="site-footer">
